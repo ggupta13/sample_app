@@ -1,6 +1,12 @@
-<h1>Sample App</h1>
-<p>
-  This is the home page for the
-  <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-  sample application.
-</p>
+<div class="center hero-unit">
+  <h1>Welcome to the 1+1 Assigner</h1>
+
+  <h2>
+    This is the home page for the 1+1 assignment for Gagan Gupta.
+  </h2>
+
+  <%= link_to "Add Member", signup_path, class: "btn btn-large btn-primary" %>
+  <br>List of teams and members will be here, along with edit functionality.
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
