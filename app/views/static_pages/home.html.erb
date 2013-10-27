@@ -6,7 +6,15 @@
   </h2>
 
   <%= link_to "Add Member", signup_path, class: "btn btn-large btn-primary" %>
-  <br>List of teams and members will be here, along with edit functionality.
+  <br>List of teams and members will be here, along with edit functionality. <br>
+  
+  <br><br>
+  <h3> Current Members: </h3>
+  <ul>
+    <% User.all.each do |usr| %>
+       <%= "#{usr.id}: #{usr.name} -  #{usr.email}" %> <br>
+    <% end %>
+    </ul>
 </div>
 
 <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
