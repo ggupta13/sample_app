@@ -7,4 +7,18 @@ class User2 < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }
+
+  def User2.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def User2.encrypt(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  private
+
+    def create_remember_token
+      self.remember_token = User2.encrypt(User.new_remember_token)
+    end
 end
