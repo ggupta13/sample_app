@@ -5,6 +5,10 @@
   <% @teams.each do |team| %>
     <li>
       <%= link_to team.team_name, team %>
+
+      &nbsp; &nbsp; &nbsp; &nbsp; 
+    | <%= link_to "Delete", team, method: :delete,
+                                  data: { confirm: "Are you sure you want to delete this team?" }%>
     </li>
   <% end %>
 </ul>

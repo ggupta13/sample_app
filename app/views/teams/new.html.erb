@@ -5,7 +5,7 @@
   <div class="span6 offset3">
     <%= form_for(@team) do |f| %>
 
-    
+    <%= render 'shared/error2_messages' %>
 
       <%= f.label :team_name %>
       <%= f.text_field :team_name %>

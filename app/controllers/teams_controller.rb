@@ -8,7 +8,11 @@ class TeamsController < ApplicationController
     @team = Team.new
   end
 
-  
+  def destroy
+    Team.find(params[:id]).destroy
+    flash[:success] = "Team deleted."
+    redirect_to teams_url
+  end
 
   def add_teamMember
     @team = Team.find_by_id(params[:team_id])
@@ -18,7 +22,12 @@ class TeamsController < ApplicationController
   def add_user
     @team = Team.find_by_id(params[:team_id])
     @user = User2.find_by_id(params[:user_id])
-    @team.user2s << @user
+    if @team.user2s.include? @user
+    else
+      @team.user2s << @user
+      flash[:success] = "User successfully added."
+    end
+    redirect_to @team
   end
 
   def index
@@ -31,6 +40,7 @@ class TeamsController < ApplicationController
       flash[:success] = "Successfully created #{@team.team_name}"
       redirect_to @team
     else
+      render 'new'
     end
   end
 

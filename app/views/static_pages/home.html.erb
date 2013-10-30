@@ -8,15 +8,15 @@
   <%= link_to "Add Member", add_member_path, class: "btn btn-large btn-primary" %>
   <%= link_to "Add Team", add_team_path, class: "btn btn-large btn-primary" %>
   
-  <br><br>
+  <br><br><hr>
    <% Team.all.each do |team| %>
     <ul>
-      Team <%= team.id %>: <%= link_to team.team_name, team %>
+      <b><center><%= link_to team.team_name, team %> </center></b>
       <% team.user2s.all.each do |user| %>
       	<ul>
-      		<%= link_to user.name, user %>
+      		<center><%= link_to user.name, user %></center>
       	</ul>
       <% end %>
-    </ul> <br> 
+    </ul> <hr> 
   <% end %>
 </div>
