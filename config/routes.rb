@@ -6,6 +6,8 @@ SampleApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   root 'static_pages#home'
   match '/add_member', to: 'users2#new', via: 'get'
+  match '/add_member_to_team', to: 'teams#add_teamMember', via: 'get'
+  match '/add_to_team', to: 'teams#add_user', via: 'get'
   match '/add_team', to: 'teams#new', via: 'get'
   match '/signin',  to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'

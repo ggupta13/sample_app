@@ -8,6 +8,19 @@ class TeamsController < ApplicationController
     @team = Team.new
   end
 
+  
+
+  def add_teamMember
+    @team = Team.find_by_id(params[:team_id])
+    @users = User2.all
+  end
+
+  def add_user
+    @team = Team.find_by_id(params[:team_id])
+    @user = User2.find_by_id(params[:user_id])
+    @team.user2s << @user
+  end
+
   def index
   	@teams = Team.all
   end
@@ -19,6 +32,14 @@ class TeamsController < ApplicationController
       redirect_to @team
     else
     end
+  end
+
+  def current_team=(team)
+    @current_team = team
+  end
+
+  def current_team
+    @current_team    # Useless! Don't use this line.
   end
 
   private

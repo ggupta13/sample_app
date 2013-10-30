@@ -1,12 +1,15 @@
 <% provide(:title, @team.team_name) %>
-<h1>
-  <div class="span8">
-	<ul class="teams">
-	  	<% @team.user2s.each do |user| %>
-	    <li>
-	      <%= user.name %>
-	    </li>
-	  <% end %>
+<h1> <%= @team.team_name %> </h1>
+  	<ul class="users">
+	  	<% if @team.user2s.any? %>
+	  		<% @team.user2s.each do |user| %>
+	     	 <li> <%= link_to user.name, user %> </li>
+	  		<% end %>
+	  	<% else %>
+	  	No current team members.
+	  	<% end %>
 	</ul>
-  </div>
-</h1>
+<br>
+<%= link_to "Add Member to Team", add_member_to_team_path(:team_id => @team), class: "btn btn-large btn-primary" %>
+
+
