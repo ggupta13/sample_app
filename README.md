@@ -1,5 +1,3 @@
-# Ruby on Rails Tutorial: sample application
+# One + One Assignments
 
-This is the sample application for
-the [*Ruby on Rails Tutorial*](http://railstutorial.org/)
-by Gagan Gupta
+This is the application for IFTTT by Gagan Gupta. 
