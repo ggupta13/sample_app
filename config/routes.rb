@@ -1,9 +1,11 @@
 SampleApp::Application.routes.draw do
 
   resources :user2s
+  resources :teams
   resources :sessions, only: [:new, :create, :destroy]
   root 'static_pages#home'
-  match '/signup', to: 'users2#new', via: 'get'
+  match '/add_member', to: 'users2#new', via: 'get'
+  match '/add_team', to: 'teams#new', via: 'get'
   match '/signin',  to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/help', to: 'static_pages#help', via: 'get'
@@ -12,6 +14,7 @@ SampleApp::Application.routes.draw do
   match '/user2s', to: 'users2#index', via: 'get'
   match '/user2s', to: 'user2s#create', via: 'post'
   match '/user2s', to: 'users2#index', via: 'get'
+  match '/teams', to: 'teams#index', via: 'get'
 
   
 #new_user2_path   GET   /user2s/new(.:format)   user2s#new

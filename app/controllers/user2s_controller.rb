@@ -15,6 +15,8 @@ class User2sController < ApplicationController
 
   def show
     @user2 = User2.find(params[:id])
+    @microposts = @user2.microposts.paginate(page: params[:page])
+    @teams = @user2.teams
   end
 
   def new
