@@ -6,7 +6,7 @@ class User2sController < ApplicationController
 
   def destroy
     User2.find(params[:id]).destroy
-    flash[:success] = "User deleted."
+    flash[:success] = "Member deleted."
     redirect_to user2s_url
   end
 
@@ -46,8 +46,7 @@ class User2sController < ApplicationController
   private
 
     def user_params
-      params.require(:user2).permit(:name, :email, :password,
-                                   :password_confirmation)
+      params.require(:user2).permit(:name, :email)
     end
 
     # Before filters

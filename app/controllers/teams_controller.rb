@@ -25,7 +25,7 @@ class TeamsController < ApplicationController
     if @team.user2s.include? @user
     else
       @team.user2s << @user
-      flash[:success] = "User successfully added."
+      flash[:success] = "Member successfully added."
     end
     redirect_to @team
   end
