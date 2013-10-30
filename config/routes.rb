@@ -2,6 +2,7 @@ SampleApp::Application.routes.draw do
 
   resources :user2s
   resources :teams
+  resources :teams_users
   resources :sessions, only: [:new, :create, :destroy]
   root 'static_pages#home'
   match '/add_member', to: 'users2#new', via: 'get'

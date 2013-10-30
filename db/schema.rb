@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131030045858) do
+ActiveRecord::Schema.define(version: 20131030162805) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20131030045858) do
   end
 
   add_index "teams", ["team_id", "user2_id"], name: "index_teams_on_team_id_and_user2_id"
+
+  create_table "teams_user2s", id: false, force: true do |t|
+    t.integer "team_id"
+    t.integer "user2_id"
+  end
+
+  add_index "teams_user2s", ["team_id", "user2_id"], name: "index_teams_user2s_on_team_id_and_user2_id"
 
   create_table "user2s", force: true do |t|
     t.string   "name"

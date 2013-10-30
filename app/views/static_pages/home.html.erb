@@ -9,7 +9,16 @@
   <%= link_to "Add Team", add_team_path, class: "btn btn-large btn-primary" %>
   
   <br>List of teams and members will be here, along with edit functionality. <br>
-  
+   <% Team.all.each do |team| %>
+    <ul>
+      Team <%= team.id %>: <%= link_to team.team_name, team %>
+      <% team.user2s.all.each do |user| %>
+      	<ul>
+      		<%= link_to user.name, user %>
+      	</ul>
+      <% end %>
+    </ul> <br>
+  <% end %>
   <br><br>
   
 </div>

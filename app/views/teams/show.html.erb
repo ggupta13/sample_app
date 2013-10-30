@@ -1,6 +1,12 @@
 <% provide(:title, @team.team_name) %>
 <h1>
   <div class="span8">
-    <%= @team.team_name %>
+	<ul class="teams">
+	  	<% @team.user2s.each do |user| %>
+	    <li>
+	      <%= user.name %>
+	    </li>
+	  <% end %>
+	</ul>
   </div>
 </h1>
