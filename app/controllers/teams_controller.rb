@@ -23,6 +23,7 @@ class TeamsController < ApplicationController
     @team = Team.find_by_id(params[:team_id])
     @user = User2.find_by_id(params[:user_id])
     if @team.user2s.include? @user
+      flash[:error] = "Member already part of team."
     else
       @team.user2s << @user
       flash[:success] = "Member successfully added."

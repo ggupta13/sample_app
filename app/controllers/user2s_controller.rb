@@ -37,6 +37,7 @@ class User2sController < ApplicationController
     if @user2.save
       sign_in @user2
       flash[:success] = "Successfully created #{@user2.name}"
+      Notifier.send_signup_email(@user2).deliver
       redirect_to @user2
     else
       render 'new'
